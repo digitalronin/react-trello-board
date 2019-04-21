@@ -8,6 +8,16 @@ export const TOGGLE_DRAGGING = 'TOGGLE_DRAGGING';
 
 const LIST_NAMES = [ 'Todo', 'In Progress', 'Done', 'Blocked' ];
 
+// TODO: this function needs to take an issue and create a card
+// from it
+function createCard(id) {
+  return {
+    id: id,
+    title: faker.hacker.phrase(),
+    description: faker.hacker.phrase()
+  };
+}
+
 export function getLists() {
   return dispatch => {
     dispatch({ type: GET_LISTS_START });
@@ -18,11 +28,7 @@ export function getLists() {
         const cards = [];
         const randomQuantity = Math.floor(Math.random() * (9 - 1 + 1)) + 1;
         for (let ic = 0; ic < randomQuantity; ic++) {
-          cards.push({
-            id: count,
-            title: faker.hacker.phrase(),
-            description: faker.hacker.phrase()
-          });
+          cards.push(createCard(count));
           count = count + 1;
         }
         lists.push({
