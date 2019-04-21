@@ -6,13 +6,13 @@ export const MOVE_CARD = 'MOVE_CARD';
 export const MOVE_LIST = 'MOVE_LIST';
 export const TOGGLE_DRAGGING = 'TOGGLE_DRAGGING';
 
-export function getLists(quantity) {
+export function getLists() {
   return dispatch => {
-    dispatch({ type: GET_LISTS_START, quantity });
+    dispatch({ type: GET_LISTS_START });
     setTimeout(() => {
       const lists = [];
       let count = 0;
-      for (let i = 0; i < quantity; i++) {
+      for (let i = 0; i < 4; i++) {
         const cards = [];
         const randomQuantity = Math.floor(Math.random() * (9 - 1 + 1)) + 1;
         for (let ic = 0; ic < randomQuantity; ic++) {
