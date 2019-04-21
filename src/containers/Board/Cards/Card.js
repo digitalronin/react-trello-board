@@ -17,7 +17,7 @@ const Card = (props) => {
       <div className="item-name">{item.title}</div>
       <div className="item-container">
         <div className="item-content">
-          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Libero, banditos.</p>
+          <p>{item.description}</p>
         </div>
       </div>
       <div className="item-perfomers">
