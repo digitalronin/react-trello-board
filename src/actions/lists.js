@@ -20,8 +20,6 @@ export function getLists() {
         for (let ic = 0; ic < randomQuantity; ic++) {
           cards.push({
             id: count,
-            firstName: faker.name.firstName(),
-            lastName: faker.name.lastName(),
             title: faker.name.jobTitle()
           });
           count = count + 1;

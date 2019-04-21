@@ -20,7 +20,6 @@ const Card = (props) => {
           <img src={`https://randomuser.me/api/portraits/med/men/${item.id}.jpg`} alt="" />
         </div>
         <div className="item-content">
-          <div className="item-author">{`${item.firstName} ${item.lastName}`}</div>
           <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Libero, banditos.</p>
         </div>
       </div>
