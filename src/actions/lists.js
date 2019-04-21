@@ -6,13 +6,15 @@ export const MOVE_CARD = 'MOVE_CARD';
 export const MOVE_LIST = 'MOVE_LIST';
 export const TOGGLE_DRAGGING = 'TOGGLE_DRAGGING';
 
+const LIST_NAMES = [ 'Todo', 'In Progress', 'Done', 'Blocked' ];
+
 export function getLists() {
   return dispatch => {
     dispatch({ type: GET_LISTS_START });
     setTimeout(() => {
       const lists = [];
       let count = 0;
-      for (let i = 0; i < 4; i++) {
+      LIST_NAMES.map((name, idx) => {
         const cards = [];
         const randomQuantity = Math.floor(Math.random() * (9 - 1 + 1)) + 1;
         for (let ic = 0; ic < randomQuantity; ic++) {
@@ -25,11 +27,11 @@ export function getLists() {
           count = count + 1;
         }
         lists.push({
-          id: i,
-          name: faker.commerce.productName(),
+          id: idx,
+          name: LIST_NAMES[idx],
           cards
         });
-      }
+      });
       dispatch({ type: GET_LISTS, lists, isFetching: true });
     }, 1000); // fake delay
     dispatch({ type: GET_LISTS_START, isFetching: false });
