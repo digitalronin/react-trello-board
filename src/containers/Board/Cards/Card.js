@@ -16,9 +16,6 @@ const Card = (props) => {
     <div style={style} className="item" id={style ? item.id : null}>
       <div className="item-name">{item.title}</div>
       <div className="item-container">
-        <div className="item-avatar-wrap">
-          <img src={`https://randomuser.me/api/portraits/med/men/${item.id}.jpg`} alt="" />
-        </div>
         <div className="item-content">
           <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Libero, banditos.</p>
         </div>
