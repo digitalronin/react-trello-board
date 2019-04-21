@@ -14,7 +14,7 @@ const Card = (props) => {
 
   return (
     <div style={style} className="item" id={style ? item.id : null}>
-      <div className="item-name">{item.title}</div>
+      <div className="item-name">{item.id} {item.title}</div>
       <div className="item-container">
         <div className="item-content">
           <p>{item.description}</p>
