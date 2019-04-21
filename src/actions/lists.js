@@ -18,25 +18,25 @@ function createCard(id) {
   };
 }
 
+// TODO: Fetch cards by status, for different lists
+function createList(attrs) {
+  const { id, name } = attrs;
+  const cards = [];
+  const randomQuantity = Math.floor(Math.random() * (9 - 1 + 1)) + 1;
+  let count = 0;
+  for (let ic = 0; ic < randomQuantity; ic++) {
+    cards.push(createCard(count));
+    count = count + 1;
+  }
+  return { id, name, cards };
+}
+
 export function getLists() {
   return dispatch => {
     dispatch({ type: GET_LISTS_START });
     setTimeout(() => {
       const lists = [];
-      let count = 0;
-      LIST_NAMES.map((name, idx) => {
-        const cards = [];
-        const randomQuantity = Math.floor(Math.random() * (9 - 1 + 1)) + 1;
-        for (let ic = 0; ic < randomQuantity; ic++) {
-          cards.push(createCard(count));
-          count = count + 1;
-        }
-        lists.push({
-          id: idx,
-          name: LIST_NAMES[idx],
-          cards
-        });
-      });
+      LIST_NAMES.map((name, id) => lists.push(createList({ id, name })) );
       dispatch({ type: GET_LISTS, lists, isFetching: true });
     }, 1000); // fake delay
     dispatch({ type: GET_LISTS_START, isFetching: false });
